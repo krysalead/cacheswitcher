@@ -6,14 +6,14 @@ This library is a wrapper around [https://github.com/groupon/node-cached](cached
 Supported APIs
 --------------
 
-* '''set''' which set a value
-    * key: string as the unique key to set
-    * value: any type that you want to store
-    * ttl: string that represent the time to live like 3d -> 3 days, 1h -> 1 hour ...
-* '''get'''
-    * key: string as the unique key to retrieve
-* '''unset'''
-    * key: string as the unique key to remove
+* __set__ which set a value
+    * __key__: string as the unique key to set
+    * __value__: any type that you want to store
+    * __ttl__: string that represent the time to live like 3d -> 3 days, 1h -> 1 hour ...
+* __get__
+    * __key__: string as the unique key to retrieve
+* __unset__
+    * __key__: string as the unique key to remove
 
 Install
 -------
@@ -70,12 +70,15 @@ superCache.set('mykey',12345,'3d').then(function(){
 
 ```
 
-constructor
+Constructor
 ----------
 
-* type: string like memory | redis
-* opt: Object with following properties
-    * server: only for redis
-    * port: only for redis
-    * name: only for memory namespace
+* __type__: string like memory | redis
+* __opt__: Object with following properties
+    * __server__: only for redis
+    * __port__: only for redis
+    * __name__: only for memory namespace
+
+Test
+----
 
