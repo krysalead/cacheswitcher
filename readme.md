@@ -1,4 +1,4 @@
-super-cache
+cacheswitcher
 ==========
 
 This library is a wrapper around [https://github.com/groupon/node-cached](cached) and [https://github.com/cayasso/cacheman-redis](cacheman-redis), it makes easy to switch from one to the other with configuration. It also make all APIs the same, same methods, same parameters. Not all APIs are wrapped but the common ones. It also add the Promise style on all the method
@@ -19,7 +19,7 @@ Install
 -------
 
 ```
-npm install super-cache
+npm install supercache
 ```
 
 usage
@@ -28,7 +28,7 @@ usage
 Simple memory cache
 ```javascript
 
-var superCache = require('super-cache')('memory');
+var superCache = require(cacheswitcher)('memory');
 superCache.set('mykey',12345).then(function(){
     superCache.get('mykey').then(function(data){
         console.log(data);
@@ -43,7 +43,7 @@ superCache.set('mykey',12345).then(function(){
 Redis cache
 ```javascript
 
-var superCache = require('super-cache')('redis',{server:'127.0.0.1',port:6379});
+var superCache = require(cacheswitcher)('redis',{server:'127.0.0.1',port:6379});
 superCache.set('mykey',12345).then(function(){
     superCache.get('mykey').then(function(data){
         console.log(data);
@@ -57,7 +57,7 @@ superCache.set('mykey',12345).then(function(){
 Redis cache with ttl
 ```javascript
 
-var superCache = require('super-cache')('redis',{server:'127.0.0.1',port:6379});
+var superCache = require(cacheswitcher)('redis',{server:'127.0.0.1',port:6379});
 superCache.set('mykey',12345,'3d').then(function(){
     //3 days later
     superCache.get('mykey').then(function(data){
