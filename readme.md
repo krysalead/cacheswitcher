@@ -19,7 +19,7 @@ Install
 -------
 
 ```
-npm install supercache
+npm install cacheswitcher
 ```
 
 usage
@@ -28,11 +28,11 @@ usage
 Simple memory cache
 ```javascript
 
-var superCache = require(cacheswitcher)('memory');
-superCache.set('mykey',12345).then(function(){
-    superCache.get('mykey').then(function(data){
+var cacheswitcher = require('cacheswitcher')('memory');
+cacheswitcher.set('mykey',12345).then(function(){
+    cacheswitcher.get('mykey').then(function(data){
         console.log(data);
-        superCache.unset('mykey').then(function(){
+        cacheswitcher.unset('mykey').then(function(){
             console.log('Clean');
         });
     })
@@ -43,11 +43,11 @@ superCache.set('mykey',12345).then(function(){
 Redis cache
 ```javascript
 
-var superCache = require(cacheswitcher)('redis',{server:'127.0.0.1',port:6379});
-superCache.set('mykey',12345).then(function(){
-    superCache.get('mykey').then(function(data){
+var cacheswitcher = require('cacheswitcher')('redis',{server:'127.0.0.1',port:6379});
+cacheswitcher.set('mykey',12345).then(function(){
+    cacheswitcher.get('mykey').then(function(data){
         console.log(data);
-        superCache.unset('mykey').then(function(){
+        cacheswitcher.unset('mykey').then(function(){
             console.log('Clean');
         });
     })
@@ -57,12 +57,12 @@ superCache.set('mykey',12345).then(function(){
 Redis cache with ttl
 ```javascript
 
-var superCache = require(cacheswitcher)('redis',{server:'127.0.0.1',port:6379});
-superCache.set('mykey',12345,'3d').then(function(){
+var cacheswitcher = require('cacheswitcher')('redis',{server:'127.0.0.1',port:6379});
+cacheswitcher.set('mykey',12345,'3d').then(function(){
     //3 days later
-    superCache.get('mykey').then(function(data){
+    cacheswitcher.get('mykey').then(function(data){
         console.log(data); // -> undefined
-        superCache.unset('mykey').then(function(){
+        cacheswitcher.unset('mykey').then(function(){
             console.log('Clean');
         });
     })
@@ -82,3 +82,6 @@ Constructor
 Test
 ----
 
+```
+npm test
+```
